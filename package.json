@@ -1,6 +1,6 @@
 {
   "name": "rnsk",
-  "homepage": "http://react-boilerplate.mcnam.ee/",
+  "homepage": "http://www.marksalvin.com",
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
@@ -47,6 +47,8 @@
   },
   "dependencies": {
     "@expo/vector-icons": "^6.3.1",
+    "@material-ui/core": "^1.0.0-rc.0",
+    "@material-ui/icons": "^1.0.0-rc.0",
     "babel": "^6.23.0",
     "babel-eslint": "^8.2.3",
     "babel-polyfill": "^6.26.0",
@@ -62,13 +64,13 @@
     "native-base": "^2.4.2",
     "object-assign": "^4.1.1",
     "prop-types": "^15.6.1",
+    "ramda": "^0.25.0",
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
     "react-native": "^0.54.2",
     "react-native-router-flux": "4.0.0-beta.28",
     "react-redux": "^5.0.7",
     "react-router-dom": "^4.2.2",
-    "reactstrap": "^5.0.0",
     "redux": "^4.0.0",
     "redux-persist": "^5.9.1",
     "redux-thunk": "^2.2.0",

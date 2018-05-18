@@ -1,30 +1,11 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
-
-// Templates
-import TemplateNothing from './components/TemplateNothing';
-import TemplateSidebar from './components/TemplateSidebar';
-
-// Routes
-import Home from './components/Home';
-
-import RecipesContainer from '../containers/Recipes';
-import RecipesComponent from './components/Recipes';
-import RecipeViewComponent from './components/Recipe';
-
-import SignUpContainer from '../containers/SignUp';
-import SignUpComponent from './components/SignUp';
-
-import LoginContainer from '../containers/Login';
-import LoginComponent from './components/Login';
-
-import ForgotPasswordContainer from '../containers/ForgotPassword';
-import ForgotPasswordComponent from './components/ForgotPassword';
-
-import UpdateProfileContainer from '../containers/UpdateProfile';
-import UpdateProfileComponent from './components/UpdateProfile';
-
-import Error from './components/Error';
+import Simple from './templates/Simple';
+import Simpler from './templates/Simpler';
+import Home from './pages/Home';
+import People from '../containers/People';
+import Person from './pages/Person';
+import Error from './pages/Error';
 
 const Index = () => (
   <Switch>
@@ -32,64 +13,24 @@ const Index = () => (
       exact
       path="/"
       render={props => (
-        <TemplateSidebar>
-          <Home {...props} />
-        </TemplateSidebar>
+        <Simple title="Remember Me">
+          <People ChildComponent={Home} />
+        </Simple>
       )}
     />
     <Route
-      path="/sign-up"
+      path="/person/:index"
       render={props => (
-        <TemplateNothing>
-          <SignUpContainer {...props} Layout={SignUpComponent} />
-        </TemplateNothing>
-      )}
-    />
-    <Route
-      path="/login"
-      render={props => (
-        <TemplateNothing>
-          <LoginContainer {...props} Layout={LoginComponent} />
-        </TemplateNothing>
-      )}
-    />
-    <Route
-      path="/forgot-password"
-      render={props => (
-        <TemplateNothing>
-          <ForgotPasswordContainer {...props} Layout={ForgotPasswordComponent} />
-        </TemplateNothing>
-      )}
-    />
-    <Route
-      path="/update-profile"
-      render={props => (
-        <TemplateSidebar>
-          <UpdateProfileContainer {...props} Layout={UpdateProfileComponent} />
-        </TemplateSidebar>
-      )}
-    />
-    <Route
-      path="/recipes"
-      render={props => (
-        <TemplateSidebar>
-          <RecipesContainer {...props} Layout={RecipesComponent} />
-        </TemplateSidebar>
-      )}
-    />
-    <Route
-      path="/recipe/:id"
-      render={props => (
-        <TemplateSidebar>
-          <RecipesContainer {...props} Layout={RecipeViewComponent} />
-        </TemplateSidebar>
+        <Simpler>
+          <People ChildComponent={Person} index={parseInt(props.match.params.index, 10)} />
+        </Simpler>
       )}
     />
     <Route
       render={props => (
-        <TemplateSidebar>
-          <Error {...props} title="404" content="Sorry, the route you requested does not exist" />
-        </TemplateSidebar>
+        <Simpler>
+          <Error />
+        </Simpler>
       )}
     />
   </Switch>
