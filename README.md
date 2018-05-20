@@ -2,11 +2,14 @@
 
 ## TODO
 
-- Fix styling + typography
+- Fix typography ✅
 - Rename components?
-- Redux time travel for undo delete and edit?
+- native app
 - Implement basic tests around redux using jest runner
+- Fix styling
+- Redux time travel for undo delete and edit?
 - Upgrade webpack to v4
+- React router material style transitions - https://marmelab.com/blog/2017/12/04/material-design-animations-react-router.html
 - Implement service worker
 - Implement i18n
 - Replace instances of link with withRouter?

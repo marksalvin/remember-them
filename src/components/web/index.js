@@ -9,7 +9,7 @@ import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import configureStore from '../../state/store/index';
 // import registerServiceWorker from './register-service-worker';
 import Routes from './routes';
-import Loading from './components/Loading';
+// import Loading from './components/Loading'; // TODO
 // import './styles/style.scss';
 
 const theme = createMuiTheme({
@@ -38,7 +38,7 @@ const rootElement = document.getElementById('root');
 const Root = () => (
   <MuiThemeProvider theme={theme}>
     <Provider store={store}>
-      <PersistGate loading={<Loading />} persistor={persistor}>
+      <PersistGate loading={<div>Loading...</div>} persistor={persistor}>
         <Fragment>
           <CssBaseline />
           <Router>

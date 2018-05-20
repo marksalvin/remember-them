@@ -32,6 +32,9 @@ const styles = theme => ({
   grid: {
     margin: 0,
   },
+  link: {
+    'text-decoration': 'none',
+  }
 });
 
 // TODO use a selector to make headline one of the person properties - in future this could be configurablbe by a setting
@@ -60,7 +63,7 @@ const Home = ({
         <div className={classes.demo}>
           <List dense={false}>
             {Array.isArray(people) && people.map((person, index) => (
-              <Link to={`/person/${index}`} key={uuidv1()}>
+              <Link to={`/person/${index}`} key={uuidv1()} className={classes.link}>
                 <ListItem>
                   <ListItemAvatar>
                     <Avatar>

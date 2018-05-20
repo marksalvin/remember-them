@@ -92,7 +92,6 @@ const styles = theme => ({
 //   },
 });
 
-// TODO apply font family
 const Person = ({
   classes,
   isEditPersonVisible,
@@ -139,28 +138,53 @@ const Person = ({
         </div>
       </div>
       <CardContent>
-        <Typography gutterBottom variant="headline" component="h2">
-          {people[index].name}
-        </Typography>
         <div>
-          <h3>Where do they live?</h3>
-          <p>{people[index].home}</p>
+          <Typography gutterBottom variant="headline" component="h3">
+            What's their name?
+          </Typography>
+          <Typography gutterBottom variant="subheading" component="p">
+            {people[index].name}
+          </Typography>
         </div>
         <div>
-          <h3>What are they enjoying doing at the moment?</h3>
-          <p>{people[index].hobbies}</p>
+          <Typography gutterBottom variant="headline" component="h3">
+            Where do they live?
+          </Typography>
+          <Typography gutterBottom variant="subheading" component="p">
+            {people[index].home}
+          </Typography>
         </div>
         <div>
-          <h3>What are they doing for work?</h3>
-          <p>{people[index].work}</p>
+          <Typography gutterBottom variant="headline" component="h3">
+            What are they into?
+          </Typography>
+          <Typography gutterBottom variant="subheading" component="p">
+            {people[index].hobbies}
+          </Typography>
         </div>
         <div>
-          <h3>Where do they come from?</h3>
-          <p>{people[index].origin}</p>
+          <Typography gutterBottom variant="headline" component="h3">
+            What are they doing for work?
+          </Typography>
+          <Typography gutterBottom variant="subheading" component="p">
+            {people[index].work}
+          </Typography>
         </div>
         <div>
-          <h3>Anything else?</h3>
-          <p>{people[index].additional}</p>
+          <Typography gutterBottom variant="headline" component="h3">
+            Where do they come from?
+          </Typography>
+          <Typography gutterBottom variant="subheading" component="p">
+            {people[index].origin}
+          </Typography>
+        </div>
+        <div>
+          <Typography gutterBottom variant="headline" component="h3">
+            Anything else?
+          </Typography>
+          <Typography gutterBottom variant="subheading" component="p">
+            {people[index].additional}
+          </Typography>
         </div>
       </CardContent>
     </Card>

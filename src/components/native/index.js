@@ -10,7 +10,7 @@ import getTheme from '../../../native-base-theme/components';
 import theme from '../../../native-base-theme/variables/commonColor';
 
 import Routes from './routes';
-import Loading from './components/Loading';
+import Loading from './molecules/Loading';
 
 // Hide StatusBar on Android as it overlaps tabs
 if (Platform.OS === 'android') StatusBar.setHidden(true);
