@@ -13,7 +13,7 @@ const styles = {
   },
 };
 
-const Simple = ({ classes, children, title }) => (
+const WithHeaderTemplate = ({ classes, children, title }) => (
   <div className={classes.root}>
     <AppBar position="static">
       <Toolbar>
@@ -26,10 +26,10 @@ const Simple = ({ classes, children, title }) => (
   </div>
 );
 
-Simple.propTypes = {
+WithHeaderTemplate.propTypes = {
   classes: PropTypes.objectOf(PropTypes.string).isRequired,
   children: PropTypes.element.isRequired,
   title: PropTypes.string.isRequired,
 };
 
-export default withStyles(styles)(Simple);
+export default withStyles(styles)(WithHeaderTemplate);

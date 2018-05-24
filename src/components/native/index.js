@@ -24,9 +24,7 @@ const App = ({ store, persistor }) => (
       >
         <StyleProvider style={getTheme(theme)}>
           <Router>
-            <Stack key="root">
-              {Routes}
-            </Stack>
+            {Routes}
           </Router>
         </StyleProvider>
       </PersistGate>

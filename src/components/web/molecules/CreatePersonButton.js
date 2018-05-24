@@ -29,7 +29,7 @@ const CreatePersonButton = ({
 );
 
 CreatePersonButton.propTypes = {
-  classes: PropTypes.objectOf(PropTypes.string).isRequired,
+  classes: PropTypes.objectOf(PropTypes.object).isRequired,
   setCreatePersonVisible: PropTypes.func.isRequired,
 };
 

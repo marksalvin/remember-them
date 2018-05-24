@@ -3,12 +3,16 @@
 ## TODO
 
 - Fix typography ✅
-- Rename components?
+- Rename components? ✅
+- Sort out title stuff and using correct template for each route in native
+- Can card go full screen on native or should actions move to header?
 - native app
 - Implement basic tests around redux using jest runner
+- Use render item for rendering native list (iterator)
 - Fix styling
-- Redux time travel for undo delete and edit?
 - Upgrade webpack to v4
+- export to ... (text)
+- Redux time travel for undo delete and edit?
 - React router material style transitions - https://marmelab.com/blog/2017/12/04/material-design-animations-react-router.html
 - Implement service worker
 - Implement i18n

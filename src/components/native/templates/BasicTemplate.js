@@ -10,15 +10,15 @@ const styles = {
   },
 };
 
-const Simpler = ({ classes, children }) => (
+const BasicTemplate = ({ classes, children }) => (
   <div className={classes.root}>
     {children}
   </div>
 );
 
-Simpler.propTypes = {
+BasicTemplate.propTypes = {
   classes: PropTypes.objectOf(PropTypes.string).isRequired,
   children: PropTypes.element.isRequired,
 };
 
-export default withStyles(styles)(Simpler);
+export default withStyles(styles)(BasicTemplate);

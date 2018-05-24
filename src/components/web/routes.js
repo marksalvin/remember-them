@@ -1,11 +1,11 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
-import Simple from './templates/Simple';
-import Simpler from './templates/Simpler';
-import Home from './pages/Home';
+import WithHeaderTemplate from './templates/WithHeaderTemplate';
+import BasicTemplate from './templates/BasicTemplate';
+import HomePage from './pages/HomePage';
 import People from '../containers/People';
-import Person from './pages/Person';
-import Error from './pages/Error';
+import PersonPage from './pages/PersonPage';
+import ErrorPage from './pages/ErrorPage';
 
 const Index = () => (
   <Switch>
@@ -13,24 +13,24 @@ const Index = () => (
       exact
       path="/"
       render={props => (
-        <Simple title="Remember Me">
-          <People ChildComponent={Home} />
-        </Simple>
+        <WithHeaderTemplate title="Remember Me">
+          <People ChildComponent={HomePage} />
+        </WithHeaderTemplate>
       )}
     />
     <Route
       path="/person/:index"
       render={props => (
-        <Simpler>
-          <People ChildComponent={Person} index={parseInt(props.match.params.index, 10)} />
-        </Simpler>
+        <BasicTemplate>
+          <People ChildComponent={PersonPage} index={parseInt(props.match.params.index, 10)} />
+        </BasicTemplate>
       )}
     />
     <Route
       render={props => (
-        <Simpler>
-          <Error />
-        </Simpler>
+        <BasicTemplate>
+          <ErrorPage />
+        </BasicTemplate>
       )}
     />
   </Switch>
