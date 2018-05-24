@@ -2,7 +2,7 @@ import React from 'react';
 import { Scene, Stack } from 'react-native-router-flux';
 import DefaultProps from './constants/navigation';
 import AppConfig from '../../constants/config';
-import WithHeaderTemplate from './templates/WithHeaderTemplate';
+import BasicTemplate from './templates/BasicTemplate';
 import People from '../containers/People';
 import HomePage from './pages/HomePage';
 import PersonPage from './pages/PersonPage';
@@ -12,22 +12,21 @@ const Index = (
     <Scene
       key="homepage"
       component={() => (
-        <WithHeaderTemplate title="Remember Me">
+        <BasicTemplate title="Remember Me">
           <People ChildComponent={HomePage} />
-        </WithHeaderTemplate>
+        </BasicTemplate>
       )}
-      title="Remember Me"
+      title={AppConfig.appName.toUpperCase()}
       {...DefaultProps.navbarProps}
     />
     <Scene
       key="personpage"
       component={() => (
-        <WithHeaderTemplate title="something">
+        <BasicTemplate>
           <People ChildComponent={PersonPage} />
-        </WithHeaderTemplate>
+        </BasicTemplate>
       )}
-      {...DefaultProps.navbarProps}
-      title={AppConfig.appName.toUpperCase()}
+      hideNavBar
     />
   </Stack>
 );

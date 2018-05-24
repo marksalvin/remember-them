@@ -13,7 +13,7 @@ import Routes from './routes';
 import Loading from './molecules/Loading';
 
 // Hide StatusBar on Android as it overlaps tabs
-if (Platform.OS === 'android') StatusBar.setHidden(true);
+// if (Platform.OS === 'android') StatusBar.setHidden(true);
 
 const App = ({ store, persistor }) => (
   <Root>

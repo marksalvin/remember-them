@@ -3,11 +3,24 @@ import PropTypes from 'prop-types';
 import { Content, Text, H3, Card, CardItem, Icon, Left, Body, Right } from 'native-base';
 import { StyleSheet } from 'react-native';
 import { Actions } from 'react-native-router-flux';
+import { getStatusBarHeight } from 'react-native-status-bar-height';
 import * as R from 'ramda';
 import DeletePersonModal from '../organisms/DeletePersonModal';
 import EditPersonModal from '../organisms/EditPersonModal';
 
 const styles = StyleSheet.create({
+  content: {
+    backgroundColor: '#546e7a',
+  },
+  cardActions: {
+    backgroundColor: '#29b6f6',
+  },
+  card: {
+    flex: 0,
+    marginTop: getStatusBarHeight() + 20,
+    marginLeft: 10,
+    marginRight: 10,
+  },
   cardItemHeading: {
     fontSize: 16,
     marginBottom: 5,
@@ -47,9 +60,9 @@ const PersonPage = ({
   acknowledgePersonDeleted,
 }) => (
   <Fragment>
-    <Content>
-      <Card style={{ flex: 0 }}>
-        <CardItem>
+    <Content style={styles.content}>
+      <Card style={styles.card}>
+        <CardItem style={styles.cardActions}>
           <Left>
             <Body>
               <Icon name="arrow-back" type="MaterialIcons" onPress={Actions.pop} />

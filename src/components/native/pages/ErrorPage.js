@@ -35,7 +35,7 @@ const ErrorPage = () => (
                 block
                 light
                 style={styles.modalButton}
-                onPress={() => Actions.popTo('homepage')}
+                onPress={() => Actions.reset()}
               >
                 <Text>Home</Text>
               </Button>

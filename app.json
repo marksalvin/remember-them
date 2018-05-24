@@ -1,9 +1,12 @@
 {
   "expo": {
     "sdkVersion": "26.0.0",
-    "name": "React Native Starter Kit",
-    "slug": "react-native-starter-kit",
+    "name": "Remember Me",
+    "slug": "remember-me",
     "icon": "src/images/app-icon.png",
-    "privacy": "public"
+    "privacy": "public",
+    "androidStatusBar": {
+      "backgroundColor": "#546e7a"
+    }
   }
 }

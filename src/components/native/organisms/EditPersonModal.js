@@ -15,12 +15,21 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   modalForm: {
+    marginTop: 10,
     marginBottom: 10,
+  },
+  modalFormItem: {
+    marginTop: 10,
   },
   modalButtonContainer: {
     flexDirection: 'row',
   },
-  modalButton: {
+  modalPrimaryButton: {
+    flexGrow: 1,
+    margin: 5,
+    backgroundColor: '#29b6f6',
+  },
+  modalSecondaryButton: {
     flexGrow: 1,
     margin: 5,
   },
@@ -87,45 +96,45 @@ class EditPersonModal extends React.Component {
       >
         <View style={styles.modalContent}>
           <ScrollView>
-            <H3 style={styles.modalTitle}>Ok, so you've got some new deet's...</H3>
-            <Text>Quick, update their details! ;)</Text>
+            <H3 style={styles.modalTitle}>Edit</H3>
+            <Text>Enter updated details below</Text>
             <View style={styles.modalForm}>
-              <Item floatingLabel>
+              <Item stackedLabel style={styles.modalFormItem}>
                 <Label>What's their name?</Label>
                 <Input
                   onChangeText={this.setFieldValue('name')}
                   value={name}
                 />
               </Item>
-              <Item floatingLabel>
+              <Item stackedLabel style={styles.modalFormItem}>
                 <Label>Where do they live?</Label>
                 <Input
                   onChangeText={this.setFieldValue('home')}
                   value={home}
                 />
               </Item>
-              <Item floatingLabel>
+              <Item stackedLabel style={styles.modalFormItem}>
                 <Label>What are they into?</Label>
                 <Input
                   onChangeText={this.setFieldValue('hobbies')}
                   value={hobbies}
                 />
               </Item>
-              <Item floatingLabel>
+              <Item stackedLabel style={styles.modalFormItem}>
                 <Label>What are they doing for work?</Label>
                 <Input
                   onChangeText={this.setFieldValue('work')}
                   value={work}
                 />
               </Item>
-              <Item floatingLabel>
+              <Item stackedLabel style={styles.modalFormItem}>
                 <Label>Where are they from?</Label>
                 <Input
                   onChangeText={this.setFieldValue('origin')}
                   value={origin}
                 />
               </Item>
-              <Item floatingLabel>
+              <Item stackedLabel style={styles.modalFormItem}>
                 <Label>Anything else?</Label>
                 <Input
                   onChangeText={this.setFieldValue('additional')}
@@ -137,14 +146,14 @@ class EditPersonModal extends React.Component {
               <Button
                 block
                 light
-                style={styles.modalButton}
+                style={styles.modalSecondaryButton}
                 onPress={() => setEditPersonVisible(false)}
               >
                 <Text>Cancel</Text>
               </Button>
               <Button
                 block
-                style={styles.modalButton}
+                style={styles.modalPrimaryButton}
                 onPress={() => {
                   editPerson(
                     index,

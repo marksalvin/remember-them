@@ -16,12 +16,21 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   modalForm: {
+    marginTop: 10,
+    marginBottom: 10,
+  },
+  modalText: {
     marginBottom: 10,
   },
   modalButtonContainer: {
     flexDirection: 'row',
   },
-  modalButton: {
+  modalPrimaryButton: {
+    flexGrow: 1,
+    margin: 5,
+    backgroundColor: '#29b6f6',
+  },
+  modalSecondaryButton: {
     flexGrow: 1,
     margin: 5,
   },
@@ -45,19 +54,19 @@ const DeletePersonModal = ({
     <View style={styles.modalContent}>
       <ScrollView>
         <H3 style={styles.modalTitle}>Delete</H3>
-        <Text>Are you sure?</Text>
+        <Text style={styles.modalText}>Are you sure?</Text>
         <View style={styles.modalButtonContainer}>
           <Button
             block
             light
-            style={styles.modalButton}
+            style={styles.modalSecondaryButton}
             onPress={() => setDeletePersonVisible(false)}
           >
             <Text>Cancel</Text>
           </Button>
           <Button
             block
-            style={styles.modalButton}
+            style={styles.modalPrimaryButton}
             onPress={() => {
               // Go to homepage
               Actions.pop();
