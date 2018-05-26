@@ -64,7 +64,7 @@ const PersonCreatedSnackbar = ({
       'aria-describedby': 'snackbar-fab-message-id',
       className: classes.snackbarContent,
     }}
-    message={<span id="snackbar-fab-message-id">Remembered!</span>}
+    message={<span id="snackbar-fab-message-id">Saved!</span>}
     action={[
       <Button key="undo" color="secondary" size="small" onClick={undoPersonCreated}>
         UNDO

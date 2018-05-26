@@ -12,7 +12,7 @@ const Index = (
     <Scene
       key="homepage"
       component={() => (
-        <BasicTemplate title="Remember Me">
+        <BasicTemplate title="Remember Them">
           <People ChildComponent={HomePage} />
         </BasicTemplate>
       )}

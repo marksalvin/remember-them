@@ -13,7 +13,7 @@ const Index = () => (
       exact
       path="/"
       render={props => (
-        <WithHeaderTemplate title="Remember Me">
+        <WithHeaderTemplate title="Remember Them">
           <People ChildComponent={HomePage} />
         </WithHeaderTemplate>
       )}

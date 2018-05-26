@@ -1,4 +1,4 @@
-# Remember Me
+# Remember Them
 
 ## TODO
 
@@ -7,8 +7,9 @@
 - Sort out title stuff and using correct template for each route in native ✅
 - Can card go full screen on native or should actions move to header? ✅
 - Native app ✅
-- Fix roboto font error on toasts
+- Fix roboto font error on toasts (Android only) ✅
 - Build native app and deploy to phone (fastlane, expo, etc)
+- Export app strings to constants file or language file
 - Deploy web app
 - Export to ... (text)
 - Use render item for rendering native list (iterator)
