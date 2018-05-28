@@ -4,6 +4,9 @@ import { withStyles } from '@material-ui/core/styles';
 import Snackbar from '@material-ui/core/Snackbar';
 import IconButton from '@material-ui/core/IconButton';
 import CloseIcon from '@material-ui/icons/Close';
+import * as R from 'ramda';
+
+const i18n = R.path(['molecules', 'PersonDeletedSnackbar'], require('../../../i18n').default);
 
 const styles = theme => ({
   root: {
@@ -62,7 +65,7 @@ const PersonDeletedSnackbar = ({
       'aria-describedby': 'snackbar-fab-message-id',
       className: classes.snackbarContent,
     }}
-    message={<span id="snackbar-fab-message-id">Deleted!</span>}
+    message={<span id="snackbar-fab-message-id">{i18n.deleted}</span>}
     action={[
       <IconButton
         key="close"

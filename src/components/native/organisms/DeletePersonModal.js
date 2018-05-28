@@ -4,6 +4,9 @@ import { View, Text, H3, Button, Toast } from 'native-base';
 import { StyleSheet, ScrollView } from 'react-native';
 import Modal from 'react-native-modal';
 import { Actions } from 'react-native-router-flux';
+import * as R from 'ramda';
+
+const i18n = R.path(['organisms', 'DeletePersonModal'], require('../../../i18n').default);
 
 const styles = StyleSheet.create({
   modalContent: {
@@ -53,8 +56,8 @@ const DeletePersonModal = ({
   >
     <View style={styles.modalContent}>
       <ScrollView>
-        <H3 style={styles.modalTitle}>Delete</H3>
-        <Text style={styles.modalText}>Are you sure?</Text>
+        <H3 style={styles.modalTitle}>{i18n.title}</H3>
+        <Text style={styles.modalText}>{i18n.body}</Text>
         <View style={styles.modalButtonContainer}>
           <Button
             block
@@ -62,7 +65,7 @@ const DeletePersonModal = ({
             style={styles.modalSecondaryButton}
             onPress={() => setDeletePersonVisible(false)}
           >
-            <Text>Cancel</Text>
+            <Text>{i18n.cancelAction}</Text>
           </Button>
           <Button
             block
@@ -78,13 +81,13 @@ const DeletePersonModal = ({
               acknowledgePersonDeleted();
 
               Toast.show({
-                text: 'Deleted!',
-                buttonText: 'Okay',
+                text: i18n.deleted,
+                buttonText: i18n.deletedAcknowledge,
                 duration: 3000,
               });
             }}
           >
-            <Text>Delete</Text>
+            <Text>{i18n.deleteAction}</Text>
           </Button>
         </View>
       </ScrollView>

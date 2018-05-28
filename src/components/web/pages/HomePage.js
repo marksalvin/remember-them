@@ -34,12 +34,11 @@ const styles = theme => ({
   },
   link: {
     'text-decoration': 'none',
-  }
+  },
 });
 
 // TODO use a selector to make headline one of the person properties - in future this could be configurablbe by a setting
-// TODO remove underline links
-const Home = ({
+const HomePage = ({
   classes,
   isCreatePersonVisible,
   setCreatePersonVisible,
@@ -54,11 +53,6 @@ const Home = ({
 }) => (
   <div className={classes.root}>
     <Grid container spacing={8} className={classes.grid}>
-      {/* <Grid item xs={12}>
-        <Typography variant="title" className={classes.title}>
-          Remembered People
-        </Typography>
-      </Grid> */}
       <Grid item xs={12}>
         <div className={classes.demo}>
           <List dense={false}>
@@ -100,7 +94,7 @@ const Home = ({
   </div>
 );
 
-Home.propTypes = {
+HomePage.propTypes = {
   classes: PropTypes.objectOf(PropTypes.string).isRequired,
   isCreatePersonVisible: PropTypes.bool.isRequired,
   setCreatePersonVisible: PropTypes.func.isRequired,
@@ -114,4 +108,4 @@ Home.propTypes = {
   acknowledgePersonDeleted: PropTypes.func.isRequired,
 };
 
-export default withStyles(styles)(Home);
+export default withStyles(styles)(HomePage);

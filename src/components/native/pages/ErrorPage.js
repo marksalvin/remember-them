@@ -2,6 +2,9 @@ import React, { Fragment } from 'react';
 import { Actions } from 'react-native-router-flux';
 import { Content, View, Text, H3, Button, Card, CardItem, Body } from 'native-base';
 import { StyleSheet } from 'react-native';
+import * as R from 'ramda';
+
+const i18n = R.path(['pages', 'ErrorPage'], require('../../../i18n').default);
 
 const styles = StyleSheet.create({
   card: {
@@ -29,7 +32,7 @@ const ErrorPage = () => (
       <Card style={styles.card}>
         <CardItem>
           <Body>
-            <H3 style={styles.cardItemHeading}>Oops, something went wrong :(</H3>
+            <H3 style={styles.cardItemHeading}>{i18n.title}</H3>
             <View style={styles.modalButtonContainer}>
               <Button
                 block
@@ -37,7 +40,7 @@ const ErrorPage = () => (
                 style={styles.modalButton}
                 onPress={() => Actions.reset()}
               >
-                <Text>Home</Text>
+                <Text>{i18n.home}</Text>
               </Button>
             </View>
           </Body>

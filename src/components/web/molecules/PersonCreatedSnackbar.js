@@ -5,6 +5,9 @@ import Button from '@material-ui/core/Button';
 import Snackbar from '@material-ui/core/Snackbar';
 import IconButton from '@material-ui/core/IconButton';
 import CloseIcon from '@material-ui/icons/Close';
+import * as R from 'ramda';
+
+const i18n = R.path(['molecules', 'PersonCreatedSnackbar'], require('../../../i18n').default);
 
 const styles = theme => ({
   root: {
@@ -64,10 +67,10 @@ const PersonCreatedSnackbar = ({
       'aria-describedby': 'snackbar-fab-message-id',
       className: classes.snackbarContent,
     }}
-    message={<span id="snackbar-fab-message-id">Saved!</span>}
+    message={<span id="snackbar-fab-message-id">{i18n.saved}</span>}
     action={[
       <Button key="undo" color="secondary" size="small" onClick={undoPersonCreated}>
-        UNDO
+        {i18n.undo}
       </Button>,
       <IconButton
         key="close"

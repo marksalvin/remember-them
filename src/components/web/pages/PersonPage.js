@@ -1,28 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
-import Switch from '@material-ui/core/Switch';
-import Paper from '@material-ui/core/Paper';
-import Grow from '@material-ui/core/Grow';
-
 import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
-import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-import Icon from '@material-ui/core/Icon';
 import IconButton from '@material-ui/core/IconButton';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import DeleteIcon from '@material-ui/icons/Delete';
 import EditIcon from '@material-ui/icons/Edit';
 import { Link } from 'react-router-dom';
+import * as R from 'ramda';
 import DeletePersonModal from '../organisms/DeletePersonModal';
 import EditPersonModal from '../organisms/EditPersonModal';
 import PersonEditedSnackbar from '../molecules/PersonEditedSnackbar';
-// import { push } from 'react-router-redux';
 
-const styles = theme => ({
+const i18n = R.path(['pages', 'PersonPage'], require('../../../i18n').default);
+
+const styles = () => ({
   card: {
     height: '100vh',
   },
@@ -55,41 +49,6 @@ const styles = theme => ({
   headerActions: {
     float: 'right',
   },
-//   root: {
-//     display: 'flex',
-//     // 'overflow-x': 'hidden',
-//     height: '100vh',
-//     width: '100vw',
-//     'z-index': 2000,
-//     position: 'absolute',
-//     top: 0,
-//     left: 0,
-//   },
-//   demo: {
-//     backgroundColor: theme.palette.background.paper,
-//   },
-//   title: {
-//     margin: `${theme.spacing.unit * 4}px ${theme.spacing.unit * 2}px ${theme.spacing.unit * 2}px`,
-//   },
-//   grid: {
-//     margin: 0,
-//   },
-
-//   container: {
-//     display: 'flex',
-//   },
-//   paper: {
-//     margin: theme.spacing.unit,
-//   },
-//   svg: {
-//     width: 100,
-//     height: 100,
-//   },
-//   polygon: {
-//     fill: theme.palette.common.white,
-//     stroke: theme.palette.divider,
-//     strokeWidth: 1,
-//   },
 });
 
 const Person = ({
@@ -102,7 +61,6 @@ const Person = ({
   personEdited,
   isPersonEditedVisible,
   acknowledgePersonEdited,
-  // undoPersonCreated, // TODO redux time travel for this..?
   isDeletePersonVisible,
   setDeletePersonVisible,
   deletePerson,
@@ -140,7 +98,7 @@ const Person = ({
       <CardContent>
         <div>
           <Typography gutterBottom variant="headline" component="h3">
-            What's their name?
+            {i18n.titleName}
           </Typography>
           <Typography gutterBottom variant="subheading" component="p">
             {people[index].name}
@@ -148,7 +106,7 @@ const Person = ({
         </div>
         <div>
           <Typography gutterBottom variant="headline" component="h3">
-            Where do they live?
+            {i18n.titleHome}
           </Typography>
           <Typography gutterBottom variant="subheading" component="p">
             {people[index].home}
@@ -156,7 +114,7 @@ const Person = ({
         </div>
         <div>
           <Typography gutterBottom variant="headline" component="h3">
-            What are they into?
+            {i18n.titleHobbies}
           </Typography>
           <Typography gutterBottom variant="subheading" component="p">
             {people[index].hobbies}
@@ -164,7 +122,7 @@ const Person = ({
         </div>
         <div>
           <Typography gutterBottom variant="headline" component="h3">
-            What are they doing for work?
+            {i18n.titleWork}
           </Typography>
           <Typography gutterBottom variant="subheading" component="p">
             {people[index].work}
@@ -172,7 +130,7 @@ const Person = ({
         </div>
         <div>
           <Typography gutterBottom variant="headline" component="h3">
-            Where do they come from?
+            {i18n.titleOrigin}
           </Typography>
           <Typography gutterBottom variant="subheading" component="p">
             {people[index].origin}
@@ -180,7 +138,7 @@ const Person = ({
         </div>
         <div>
           <Typography gutterBottom variant="headline" component="h3">
-            Anything else?
+            {i18n.titleAdditional}
           </Typography>
           <Typography gutterBottom variant="subheading" component="p">
             {people[index].additional}
@@ -206,7 +164,6 @@ const Person = ({
     <PersonEditedSnackbar
       isPersonEditedVisible={isPersonEditedVisible}
       acknowledgePersonEdited={acknowledgePersonEdited}
-      // undoPersonCreated={undoPersonEdited}
     />
   </div>
 );
@@ -221,7 +178,6 @@ Person.propTypes = {
   personEdited: PropTypes.func.isRequired,
   isPersonEditedVisible: PropTypes.bool.isRequired,
   acknowledgePersonEdited: PropTypes.func.isRequired,
-  // undoPersonCreated: PropTypes.func.isRequired,
   isDeletePersonVisible: PropTypes.bool.isRequired,
   setDeletePersonVisible: PropTypes.func.isRequired,
   deletePerson: PropTypes.func.isRequired,

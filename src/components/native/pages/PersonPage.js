@@ -8,6 +8,8 @@ import * as R from 'ramda';
 import DeletePersonModal from '../organisms/DeletePersonModal';
 import EditPersonModal from '../organisms/EditPersonModal';
 
+const i18n = R.path(['pages', 'PersonPage'], require('../../../i18n').default);
+
 const styles = StyleSheet.create({
   content: {
     backgroundColor: '#546e7a',
@@ -50,9 +52,7 @@ const PersonPage = ({
   people,
   editPerson,
   personEdited,
-  // isPersonEditedVisible,
   acknowledgePersonEdited,
-  // undoPersonCreated, // TODO redux time travel for this..?
   isDeletePersonVisible,
   setDeletePersonVisible,
   deletePerson,
@@ -87,17 +87,17 @@ const PersonPage = ({
         </CardItem>
         <CardItem>
           <Body>
-            <H3 style={styles.cardItemHeading}>What's their name?</H3>
+            <H3 style={styles.cardItemHeading}>{i18n.titleName}</H3>
             <Text style={styles.cardItemText}>{getPerson(people).name}</Text>
-            <H3 style={styles.cardItemHeading}>Where do they live?</H3>
+            <H3 style={styles.cardItemHeading}>{i18n.titleHome}</H3>
             <Text style={styles.cardItemText}>{getPerson(people).home}</Text>
-            <H3 style={styles.cardItemHeading}>What are they into?</H3>
+            <H3 style={styles.cardItemHeading}>{i18n.titleHobbies}</H3>
             <Text style={styles.cardItemText}>{getPerson(people).hobbies}</Text>
-            <H3 style={styles.cardItemHeading}>What are they doing for work?</H3>
+            <H3 style={styles.cardItemHeading}>{i18n.titleWork}</H3>
             <Text style={styles.cardItemText}>{getPerson(people).work}</Text>
-            <H3 style={styles.cardItemHeading}>Where do they come from?</H3>
+            <H3 style={styles.cardItemHeading}>{i18n.titleOrigin}</H3>
             <Text style={styles.cardItemText}>{getPerson(people).origin}</Text>
-            <H3 style={styles.cardItemHeading}>Anything else?</H3>
+            <H3 style={styles.cardItemHeading}>{i18n.titleAdditional}</H3>
             <Text style={styles.cardItemText}>{getPerson(people).additional}</Text>
           </Body>
         </CardItem>
@@ -129,9 +129,7 @@ PersonPage.propTypes = {
   setEditPersonVisible: PropTypes.func.isRequired,
   editPerson: PropTypes.func.isRequired,
   personEdited: PropTypes.func.isRequired,
-  // isPersonEditedVisible: PropTypes.bool.isRequired,
   acknowledgePersonEdited: PropTypes.func.isRequired,
-  // undoPersonCreated: PropTypes.func.isRequired,
   isDeletePersonVisible: PropTypes.bool.isRequired,
   setDeletePersonVisible: PropTypes.func.isRequired,
   deletePerson: PropTypes.func.isRequired,

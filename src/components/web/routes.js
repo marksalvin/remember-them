@@ -1,5 +1,6 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
+import * as R from 'ramda';
 import WithHeaderTemplate from './templates/WithHeaderTemplate';
 import BasicTemplate from './templates/BasicTemplate';
 import HomePage from './pages/HomePage';
@@ -7,13 +8,15 @@ import People from '../containers/People';
 import PersonPage from './pages/PersonPage';
 import ErrorPage from './pages/ErrorPage';
 
+const i18n = R.path(['root'], require('../../i18n').default);
+
 const Index = () => (
   <Switch>
     <Route
       exact
       path="/"
-      render={props => (
-        <WithHeaderTemplate title="Remember Them">
+      render={() => (
+        <WithHeaderTemplate title={i18n.appName.toUpperCase()}>
           <People ChildComponent={HomePage} />
         </WithHeaderTemplate>
       )}
@@ -27,7 +30,7 @@ const Index = () => (
       )}
     />
     <Route
-      render={props => (
+      render={() => (
         <BasicTemplate>
           <ErrorPage />
         </BasicTemplate>

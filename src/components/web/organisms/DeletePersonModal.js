@@ -7,6 +7,9 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import { Link } from 'react-router-dom';
+import * as R from 'ramda';
+
+const i18n = R.path(['organisms', 'DeletePersonModal'], require('../../../i18n').default);
 
 const DeletePersonModal = ({
   index,
@@ -20,15 +23,15 @@ const DeletePersonModal = ({
     onClose={() => setDeletePersonVisible(false)}
     aria-labelledby="form-dialog-title"
   >
-    <DialogTitle id="form-dialog-title">Delete</DialogTitle>
+    <DialogTitle id="form-dialog-title">{i18n.title}</DialogTitle>
     <DialogContent>
       <DialogContentText>
-        Are you sure?
+        {i18n.body}
       </DialogContentText>
     </DialogContent>
     <DialogActions>
       <Button onClick={() => setDeletePersonVisible(false)} color="primary">
-        Cancel
+        {i18n.cancelAction}
       </Button>
       <Link
         to="/"
@@ -37,7 +40,7 @@ const DeletePersonModal = ({
           personDeleted();
         }}
       >
-        <Button color="primary">Delete</Button>
+        <Button color="primary">{i18n.deleteAction}</Button>
       </Link>
     </DialogActions>
   </Dialog>

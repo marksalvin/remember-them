@@ -1,7 +1,6 @@
 import { combineReducers } from 'redux';
 import peopleReducer from './modules/people';
 
-// TODO what's this for?
 const rehydrated = (state = false, action) => {
   switch (action.type) {
     case 'persist/REHYDRATE':

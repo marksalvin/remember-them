@@ -1,10 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
-import Button from '@material-ui/core/Button';
 import Snackbar from '@material-ui/core/Snackbar';
 import IconButton from '@material-ui/core/IconButton';
 import CloseIcon from '@material-ui/icons/Close';
+import * as R from 'ramda';
+
+const i18n = R.path(['molecules', 'PersonEditedSnackbar'], require('../../../i18n').default);
 
 const styles = theme => ({
   root: {
@@ -54,7 +56,6 @@ const PersonEditedSnackbar = ({
   classes,
   isPersonEditedVisible,
   acknowledgePersonEdited,
-//   undoPersonEdited, // TODO redux time travel?
 }) => (
   <Snackbar
     open={isPersonEditedVisible}
@@ -64,11 +65,8 @@ const PersonEditedSnackbar = ({
       'aria-describedby': 'snackbar-fab-message-id',
       className: classes.snackbarContent,
     }}
-    message={<span id="snackbar-fab-message-id">Edited!</span>}
+    message={<span id="snackbar-fab-message-id">{i18n.saved}</span>}
     action={[
-    //   <Button key="undo" color="secondary" size="small" onClick={undoPersonCreated}>
-    //     UNDO
-    //   </Button>,
       <IconButton
         key="close"
         aria-label="Close"
@@ -87,7 +85,6 @@ PersonEditedSnackbar.propTypes = {
   classes: PropTypes.objectOf(PropTypes.string).isRequired,
   isPersonEditedVisible: PropTypes.bool.isRequired,
   acknowledgePersonEdited: PropTypes.func.isRequired,
-//   undoPersonCreated: PropTypes.func.isRequired,
 };
 
 export default withStyles(styles)(PersonEditedSnackbar);

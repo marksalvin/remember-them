@@ -7,8 +7,10 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
+import * as R from 'ramda';
 
-// TODO multiline labels
+const i18n = R.path(['organisms', 'EditPersonModal'], require('../../../i18n').default);
+
 class EditPersonModal extends React.Component {
   constructor(props) {
     super(props);
@@ -65,16 +67,16 @@ class EditPersonModal extends React.Component {
         onClose={() => setEditPersonVisible(false)}
         aria-labelledby="form-dialog-title"
       >
-        <DialogTitle id="form-dialog-title">Ok, so you've got some new deet's...</DialogTitle>
+        <DialogTitle id="form-dialog-title">{i18n.title}</DialogTitle>
         <DialogContent>
           <DialogContentText>
-            Quick, update their details! ;)
+            {i18n.body}
           </DialogContentText>
           <TextField
             autoFocus
             margin="dense"
             id="name"
-            label="What's their name?"
+            label={i18n.formItemName}
             type="text"
             fullWidth
             onChange={this.setFieldValue('name')}
@@ -84,7 +86,7 @@ class EditPersonModal extends React.Component {
           <TextField
             margin="dense"
             id="home"
-            label="Where do they live?"
+            label={i18n.formItemHome}
             type="text"
             fullWidth
             onChange={this.setFieldValue('home')}
@@ -94,7 +96,7 @@ class EditPersonModal extends React.Component {
           <TextField
             margin="dense"
             id="hobbies"
-            label="What are they into?"
+            label={i18n.formItemHobbies}
             type="text"
             fullWidth
             onChange={this.setFieldValue('hobbies')}
@@ -104,7 +106,7 @@ class EditPersonModal extends React.Component {
           <TextField
             margin="dense"
             id="work"
-            label="What are they doing for work?"
+            label={i18n.formItemWork}
             type="text"
             fullWidth
             onChange={this.setFieldValue('work')}
@@ -114,7 +116,7 @@ class EditPersonModal extends React.Component {
           <TextField
             margin="dense"
             id="origin"
-            label="Where are they from?"
+            label={i18n.formItemOrigin}
             type="text"
             fullWidth
             onChange={this.setFieldValue('origin')}
@@ -124,7 +126,7 @@ class EditPersonModal extends React.Component {
           <TextField
             margin="dense"
             id="additional"
-            label="Anything else?"
+            label={i18n.formItemAdditional}
             type="text"
             fullWidth
             onChange={this.setFieldValue('additional')}
@@ -134,7 +136,7 @@ class EditPersonModal extends React.Component {
         </DialogContent>
         <DialogActions>
           <Button onClick={() => setEditPersonVisible(false)} color="primary">
-            Cancel
+            {i18n.cancelAction}
           </Button>
           <Button
             onClick={() => {
@@ -151,7 +153,7 @@ class EditPersonModal extends React.Component {
             }}
             color="primary"
           >
-            Save
+            {i18n.saveAction}
           </Button>
         </DialogActions>
       </Dialog>

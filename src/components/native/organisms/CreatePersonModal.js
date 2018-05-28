@@ -3,6 +3,9 @@ import PropTypes from 'prop-types';
 import { Item, Input, Label, View, Text, H3, Button, Toast } from 'native-base';
 import { StyleSheet, ScrollView } from 'react-native';
 import Modal from 'react-native-modal';
+import * as R from 'ramda';
+
+const i18n = R.path(['organisms', 'CreatePersonModal'], require('../../../i18n').default);
 
 const styles = StyleSheet.create({
   modalContent: {
@@ -73,46 +76,46 @@ class CreatePersonModal extends React.Component {
       >
         <View >
           <ScrollView>
-            <H3 style={styles.modalTitle}>Save</H3>
-            <Text>Enter details below</Text>
+            <H3 style={styles.modalTitle}>{i18n.title}</H3>
+            <Text>{i18n.body}</Text>
             <View style={styles.modalForm}>
               <Item stackedLabel style={styles.modalFormItem}>
-                <Label>What's their name?</Label>
+                <Label>{i18n.formItemName}</Label>
                 <Input
                   onChangeText={this.setFieldValue('name')}
                   value={this.state.name}
                 />
               </Item>
               <Item stackedLabel style={styles.modalFormItem}>
-                <Label>Where do they live?</Label>
+                <Label>{i18n.formItemHome}</Label>
                 <Input
                   onChangeText={this.setFieldValue('home')}
                   value={this.state.home}
                 />
               </Item>
               <Item stackedLabel style={styles.modalFormItem}>
-                <Label>What are they into?</Label>
+                <Label>{i18n.formItemHobbies}</Label>
                 <Input
                   onChangeText={this.setFieldValue('hobbies')}
                   value={this.state.hobbies}
                 />
               </Item>
               <Item stackedLabel style={styles.modalFormItem}>
-                <Label>What are they doing for work?</Label>
+                <Label>{i18n.formItemWork}</Label>
                 <Input
                   onChangeText={this.setFieldValue('work')}
                   value={this.state.work}
                 />
               </Item>
               <Item stackedLabel style={styles.modalFormItem}>
-                <Label>Where are they from?</Label>
+                <Label>{i18n.formItemOrigin}</Label>
                 <Input
                   onChangeText={this.setFieldValue('origin')}
                   value={this.state.origin}
                 />
               </Item>
               <Item stackedLabel style={styles.modalFormItem}>
-                <Label>Anything else?</Label>
+                <Label>{i18n.formItemAdditional}</Label>
                 <Input
                   onChangeText={this.setFieldValue('additional')}
                   value={this.state.additional}
@@ -126,7 +129,7 @@ class CreatePersonModal extends React.Component {
                 style={styles.modalSecondaryButton}
                 onPress={() => setCreatePersonVisible(false)}
               >
-                <Text>Cancel</Text>
+                <Text>{i18n.cancelAction}</Text>
               </Button>
               <Button
                 block
@@ -144,13 +147,13 @@ class CreatePersonModal extends React.Component {
                   acknowledgePersonCreated();
 
                   Toast.show({
-                    text: 'Saved!',
-                    buttonText: 'Okay',
+                    text: i18n.savedText,
+                    buttonText: i18n.savedAcknowledge,
                     duration: 3000,
                   });
                 }}
               >
-                <Text>Save</Text>
+                <Text>{i18n.saveAction}</Text>
               </Button>
             </View>
           </ScrollView>

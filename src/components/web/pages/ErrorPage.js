@@ -7,6 +7,9 @@ import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import HomeIcon from '@material-ui/icons/Home';
 import { Link } from 'react-router-dom';
+import * as R from 'ramda';
+
+const i18n = R.path(['pages', 'ErrorPage'], require('../../../i18n').default);
 
 const styles = {
   card: {
@@ -41,7 +44,7 @@ const Error = ({
     <Card className={classes.card}>
       <CardContent>
         <Typography gutterBottom variant="headline" component="h2">
-          Oops, something went wrong :(
+          {i18n.title}
         </Typography>
         <Typography component="p">
           <Link to="/">
