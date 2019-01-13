@@ -56,6 +56,17 @@ class CreatePersonModal extends React.Component {
     return value => this.setState({ ...this.state, [id]: value });
   }
 
+  resetState() {
+    this.setState({
+      name: '',
+      home: '',
+      hobbies: '',
+      work: '',
+      origin: '',
+      additional: '',
+    });
+  }
+
   render() {
     const {
       isCreatePersonVisible,
@@ -72,9 +83,8 @@ class CreatePersonModal extends React.Component {
         onModalHide={() => {
           setCreatePersonVisible(false);
         }}
-        style={styles.modalContent}
       >
-        <View >
+        <View style={styles.modalContent}>
           <ScrollView>
             <H3 style={styles.modalTitle}>{i18n.title}</H3>
             <Text>{i18n.body}</Text>
@@ -151,6 +161,8 @@ class CreatePersonModal extends React.Component {
                     buttonText: i18n.savedAcknowledge,
                     duration: 3000,
                   });
+
+                  this.resetState();
                 }}
               >
                 <Text>{i18n.saveAction}</Text>

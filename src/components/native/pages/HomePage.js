@@ -3,8 +3,11 @@ import PropTypes from 'prop-types';
 import { Actions } from 'react-native-router-flux';
 import { Content, List, ListItem, Text, Body, Left, Icon } from 'native-base';
 import uuidv1 from 'uuid/v1';
+import * as R from 'ramda';
 import CreatePersonModal from '../organisms/CreatePersonModal';
 import CreatePersonButton from '../molecules/CreatePersonButton';
+
+const i18n = R.path(['pages', 'HomePage'], require('../../../i18n').default);
 
 const HomePage = ({
   isCreatePersonVisible,
@@ -21,7 +24,7 @@ const HomePage = ({
   <Fragment>
     <Content>
       <List>
-        {Array.isArray(people) && people.map((person, index) => (
+        {Array.isArray(people) && people.length > 0 ? people.map((person, index) => (
           <ListItem avatar key={uuidv1()} onPress={() => Actions.personpage({ index })}>
             <Left>
               <Icon type="MaterialIcons" name="person" />
@@ -31,7 +34,13 @@ const HomePage = ({
               <Text note>{person.home}</Text>
             </Body>
           </ListItem>
-        ))}
+        )) : (
+          <ListItem>
+            <Body>
+              <Text>{i18n.getStarted}</Text>
+            </Body>
+          </ListItem>
+        )}
       </List>
     </Content>
     <CreatePersonButton

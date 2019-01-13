@@ -68,6 +68,10 @@ export default {
   },
 
   pages: {
+    HomePage: {
+      getStarted: 'Press the add button to get started',
+    },
+
     ErrorPage: {
       title: 'Oops, something went wrong :(',
       home: 'Home',

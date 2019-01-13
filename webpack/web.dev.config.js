@@ -13,8 +13,9 @@ module.exports = {
     filename: 'bundle.js',
     publicPath: '/',
   },
+  mode: 'development',
   module: {
-    loaders: [
+    rules: [
       // Take all sass files, compile them, and bundle them in with our js bundle
       {
         test: /\.scss$/,
@@ -29,31 +30,12 @@ module.exports = {
         test: /\.js$/,
         exclude: /node_modules/,
         loader: 'babel-loader',
-        query: {
-          presets: ['es2015', 'react', 'stage-0'],
-          plugins: [
-            [
-              'react-transform',
-              {
-                transforms: [
-                  {
-                    transform: 'react-transform-hmr',
-                    imports: ['react'],
-                    // this is important for Webpack HMR:
-                    locals: ['module'],
-                  },
-                ],
-              },
-            ],
-          ],
-        },
       },
     ],
   },
   plugins: [
     new webpack.DefinePlugin({
       'process.env': {
-        NODE_ENV: JSON.stringify('development'),
         PLATFORM_ENV: JSON.stringify('web'),
       },
     }),

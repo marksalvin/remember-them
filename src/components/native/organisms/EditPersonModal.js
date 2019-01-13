@@ -188,6 +188,8 @@ class EditPersonModal extends React.Component {
 }
 
 EditPersonModal.propTypes = {
+  index: PropTypes.number.isRequired,
+  people: PropTypes.arrayOf(PropTypes.object).isRequired,
   isEditPersonVisible: PropTypes.bool.isRequired,
   setEditPersonVisible: PropTypes.func.isRequired,
   editPerson: PropTypes.func.isRequired,

@@ -7,7 +7,7 @@ import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import ListItemText from '@material-ui/core/ListItemText';
 import Avatar from '@material-ui/core/Avatar';
 import Grid from '@material-ui/core/Grid';
-import Typography from '@material-ui/core/Typography';
+import * as R from 'ramda';
 import PersonIcon from '@material-ui/icons/Person';
 import uuidv1 from 'uuid/v1';
 import { Link } from 'react-router-dom';
@@ -15,6 +15,8 @@ import CreatePersonModal from '../organisms/CreatePersonModal';
 import CreatePersonButton from '../molecules/CreatePersonButton';
 import PersonCreatedSnackbar from '../molecules/PersonCreatedSnackbar';
 import PersonDeletedSnackbar from '../molecules/PersonDeletedSnackbar';
+
+const i18n = R.path(['pages', 'HomePage'], require('../../../i18n').default);
 
 const styles = theme => ({
   root: {
@@ -56,7 +58,7 @@ const HomePage = ({
       <Grid item xs={12}>
         <div className={classes.demo}>
           <List dense={false}>
-            {Array.isArray(people) && people.map((person, index) => (
+            {Array.isArray(people) && people.length > 0 ? people.map((person, index) => (
               <Link to={`/person/${index}`} key={uuidv1()} className={classes.link}>
                 <ListItem>
                   <ListItemAvatar>
@@ -70,7 +72,13 @@ const HomePage = ({
                   />
                 </ListItem>
               </Link>
-            ))}
+            )) : (
+              <ListItem>
+                <ListItemText
+                  primary={i18n.getStarted}
+                />
+              </ListItem>
+            )}
           </List>
         </div>
         <CreatePersonButton setCreatePersonVisible={setCreatePersonVisible} />

@@ -1,7 +1,7 @@
 import React from 'react';
+import * as Expo from 'expo';
 import Root from './src/components/native/index';
 import configureStore from './src/state/store/index';
-import Expo from 'expo';
 
 const { persistor, store } = configureStore();
 
