@@ -8,7 +8,7 @@
     "androidStatusBar": {
       "backgroundColor": "#546e7a"
     },
-    "version": "0.2.0",
+    "version": "0.3.0",
     "ios": {
       "bundleIdentifier": "com.rememberthem.rememberthem"
     },
