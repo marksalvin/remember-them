@@ -17,6 +17,7 @@
 
 - Loading component (web app)
 - Consider placing native and web components side by side
+- Extract js styles
 - Deploy web app (infrastructure using Terraform)
 - Export to ... (text)
 - Use render item for rendering native list (iterator)
