@@ -19,7 +19,7 @@ const styles = {
     height: 0,
     paddingTop: '56.25%', // 16:9
   },
-  actions:{
+  actions: {
     icon: {
       width: 30,
       height: 30,
@@ -30,8 +30,8 @@ const styles = {
       height: 60,
     },
     likeIcon: {
-      width:'43%',
-      height:'43%',
+      width: '43%',
+      height: '43%',
       color: 'white',
     },
   },

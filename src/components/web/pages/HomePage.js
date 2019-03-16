@@ -39,7 +39,7 @@ const styles = theme => ({
   },
 });
 
-// TODO use a selector to make headline one of the person properties - in future this could be configurablbe by a setting
+// TODO use a selector to make headline one of the person properties - in future this could be configurable by a setting
 const HomePage = ({
   classes,
   isCreatePersonVisible,

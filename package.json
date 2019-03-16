@@ -55,7 +55,8 @@
     "web": "webpack-dev-server --content-base build/ --config webpack/web.dev.config.js --port 3001 --inline --hot --colors --historyApiFallback",
     "web-bundle": "webpack --config webpack/web.prod.config.js --progress --colors",
     "clear-cache": "gulp clear-cache",
-    "debug": "open 'rndebugger://set-debugger-loc?host=localhost&port=19001'"
+    "debug": "open 'rndebugger://set-debugger-loc?host=localhost&port=19001'",
+    "lint": "eslint 'src/**/*.js'"
   },
   "jest": {
     "preset": "jest-expo"

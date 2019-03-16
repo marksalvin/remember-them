@@ -2,30 +2,18 @@
 
 ## TODO
 
-- Fix typography ✅
-- Rename components? ✅
-- Sort out title stuff and using correct template for each route in native ✅
-- Can card go full screen on native or should actions move to header? ✅
-- Native app ✅
-- Fix roboto font error on toasts (Android only) ✅
-- Build native app and deploy to phone (fastlane, expo, etc) ✅
-- Export app strings to constants file or language file ✅
 - Loading component (web app)
 - Deploy web app
 - Export to ... (text)
 - Use render item for rendering native list (iterator)
 - Fix styling on web app (inline with native and remove unused styles)
-- Upgrade webpack to v4
-- Create screenshots folder
-- Implement basic tests around redux using jest runner
 - Use native theme variables for colors?
 - Break molecules down in atoms?
 - Redux time travel for undo delete and edit?
 - React router material style transitions - https://marmelab.com/blog/2017/12/04/material-design-animations-react-router.html
 - Implement service worker
-- Implement i18n
 - Replace instances of link with withRouter?
-- Webdriver tests (how do react native tests work?)
+- Cypress tests (for react native too)
 
 ---
 

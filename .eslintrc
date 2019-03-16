@@ -15,6 +15,7 @@
     "no-underscore-dangle": "off",
     "prefer-promise-reject-errors": "off",
     "no-nested-ternary": "off",
-    "react/no-multi-comp": "off"
+    "react/no-multi-comp": "off",
+    "max-len": ["error", { "code": 120 }]
   },
 }
